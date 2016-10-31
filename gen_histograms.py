@@ -1,4 +1,5 @@
 from loader import load_data
+from loader import in_ipython
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -35,25 +36,35 @@ if loading_data:
     dfU,dfC = load_data()
 
 m = 'apr'
-day_zoom = 26
+day_zoom = 27
 print 'Plotting data'
 fig,ax = start_up_fig()
 
 HU,xU = histogram(dfU[m]['timesec']/24./60./60.,bins=12*24*30)
-lns = make_hist(ax[0], HU, xU,'U')
-lns = make_hist(ax[1], HU, xU,'U')
+lns = make_hist(ax[0], HU, xU + 1.,'U')
+lns = make_hist(ax[1], HU, xU + 1.,'U')
 
 HC,xC = histogram(dfC[m]['timesec']/24./60./60.,bins=12*24*30)
-lns = make_hist(ax[2], HC, xC,'C')
-lns = make_hist(ax[3], HC, xC,'C')
+lns = make_hist(ax[2], HC, xC + 1.,'C')
+lns = make_hist(ax[3], HC, xC + 1.,'C')
+
+#ax[0].plot(np.zeros(100)+ day_zoom, np.linspace(0,350.,100),'k--')
+#ax[0].plot(np.zeros(100)+ day_zoom + 3.99, np.linspace(0,350.,100),'k--')
+for a in [0,2]:
+    ax[a].fill([day_zoom, day_zoom+4., day_zoom+4., day_zoom], 
+             [0, 0, 350, 350], fill=False, hatch='/')
 
 ax[1].set_xlim(day_zoom, day_zoom + 4)
+
 ax[3].set_xlim(day_zoom, day_zoom + 4)
 
 for a in ax:
     plt.sca(a)
     plt.minorticks_on()
     a.set_ylim(0,350.)
+
+ax[0].set_xlim(1,31.)
+ax[2].set_xlim(1,31.)
 
 plt.tight_layout()
 plt.draw()
