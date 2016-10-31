@@ -68,8 +68,7 @@ def load_data(): #~ 10 seconds
 
         print msg2.format('Uber', m)
         tmp = dfU[m]['Date/Time'].str.split()
-        #dfU[m]['day'] = tmp.str[0].str.split('/').str[1]
-        dfU[m]['date'] = tmp.str[0]#.str.split('/').str[1]
+        dfU[m]['date'] = tmp.str[0]
         dfU[m]['time'] = tmp.str[1]
         make_time_sec(dfU[m], 'U')
 
@@ -78,8 +77,7 @@ def load_data(): #~ 10 seconds
 
         print msg2.format('Citi', m)
         tmp = dfC[m]['starttime'].str.split()
-        #dfC[m]['day'] = tmp.str[0].str.split('/').str[2]
-        dfC[m]['date'] = tmp.str[0]#.str#.split('/').str[2]
+        dfC[m]['date'] = tmp.str[0]
         dfC[m]['time'] = tmp.str[1]
         make_time_sec(dfC[m], 'C')
 
