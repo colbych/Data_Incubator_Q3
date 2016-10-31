@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 def start_up_fig():
     fig = plt.figure(1)
     fig.clf()
-    #fig.set_size_inches(11.,8.5)
     ax = [fig.add_subplot(221+c) for c in range(4)]
 
     return fig,ax

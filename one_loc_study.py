@@ -63,39 +63,9 @@ for m in months:
     for t in g[m]:
         u_in_times = comp(dfU[m], t)
         ubs.append(dfU[m]['timesec'][(pickups_in_dS) & (u_in_times)] - t)
-        #if ubs is None:
-        #    ubs = dfU[m]['timesec'][(pickups_in_dS) & (u_in_times)] - t
-        #else:
-        #    ubs = pd.concat((ubs,
-        #        dfU[m]['timesec'][(pickups_in_dS) & (u_in_times)] - t))
 
         c_in_times = comp(dfC[m], t)
         cit.append(dfC[m]['timesec'][(rents_at_id) & (c_in_times)] - t)
-        #if cit is None:
-        #    cit = dfC[m]['timesec'][(rents_at_id) & (c_in_times)] - t
-        #else:
-        #    cit = pd.concat((cit,
-        #        dfC[m]['timesec'][(rents_at_id) & (c_in_times)] -t))
-
-    #u_in_times = comp(dfU[m], g[m][0])
-    #c_in_times = comp(dfC[m], g[m][0])
-
-    #for t in g[m][1:]:
-    #    u_in_times = ((u_in_times) | (comp(dfU[m], t)))
-    #    c_in_times = ((c_in_times) | (comp(dfC[m], t)))
-
-
-    #if ubs is None:
-    #    ubs = dfU[m]['timesec'][(pickups_in_dS) & (u_in_times)]
-    #else:
-    #    ubs = pd.concat((ubs,
-    #        dfU[m]['timesec'][(pickups_in_dS) & (u_in_times)]))
-
-    #if cit is None:
-    #    cit = dfC[m]['timesec'][(rents_at_id) & (c_in_times)]
-    #else:
-    #    cit = pd.concat((cit,
-    #        dfC[m]['timesec'][(rents_at_id) & (c_in_times)]))
 
 n_of_cars = []
 n_of_bike= []
