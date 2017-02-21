@@ -22,11 +22,11 @@ def gen_time_windows():
     """
     # The first window will be (3 + 12)*60*60
     wds = {}
-    str = 15*60*60
+    start = 15*60*60
     sec_in_week = 7*24*60*60
     for m,n in zip(months, nmd):
-        wds[m] = range(str, n*24*60*60, sec_in_week)
-        str = sec_in_week + wds[m][-1] - n*24*60*60
+        wds[m] = range(start, n*24*60*60, sec_in_week)
+        start = sec_in_week + wds[m][-1] - n*24*60*60
 
     return wds
 def comp(df, time):
